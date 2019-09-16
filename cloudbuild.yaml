@@ -5,12 +5,11 @@ steps:
 - id: 'Contruindo imagem'
   name: 'gcr.io/cloud-builders/go'
   args: ['install', 'sqrt']
-  #env: ['GOPATH=.']
 
-# - id: 'Rodando os testes'
-#   name: 'gcr.io/cloud-builders/go'
-#   args: ['test', '-v','main']
-#   env: ['GOPATH=.']
+- id: 'Rodando os testes'
+  name: 'gcr.io/cloud-builders/go'
+  args: ['test', '-v','sqrt']
+
 #
 #
 # - id: 'Build imagem server e push'
