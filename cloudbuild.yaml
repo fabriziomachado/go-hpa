@@ -5,19 +5,19 @@ steps:
 - id: 'Contruindo imagem'
   name: 'gcr.io/cloud-builders/go'
   args: ['install', 'main']
-  env: ['GOPATH=.']
+  env: ['GOPATH=./src']
 
-- id: 'Rodando os testes'
-  name: 'gcr.io/cloud-builders/go'
-  args: ['test', '-v','main']
-  env: ['GOPATH=.']
-
-
-- id: 'Build imagem server e push'
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/goserver', '.']
-
-images: ['gcr.io/$PROJECT_ID/goserver']
+# - id: 'Rodando os testes'
+#   name: 'gcr.io/cloud-builders/go'
+#   args: ['test', '-v','main']
+#   env: ['GOPATH=.']
+#
+#
+# - id: 'Build imagem server e push'
+#   name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '--tag=gcr.io/$PROJECT_ID/goserver', '.']
+#
+# images: ['gcr.io/$PROJECT_ID/goserver']
 
 # - id: 'Constuindo a imagem de teste'
 #   name: 'gcr.io/cloud-builders/docker'
