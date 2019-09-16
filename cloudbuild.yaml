@@ -12,6 +12,6 @@ steps:
 
 - id: 'Build e push da Imagem'
   name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/go-hpa', '.']
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/go-hpa:$COMMIT_SHA', '.']
 
-images: ['gcr.io/$PROJECT_ID/go-hpa:latest']
+images: ['gcr.io/$PROJECT_ID/go-hpa:$COMMIT_SHA']
