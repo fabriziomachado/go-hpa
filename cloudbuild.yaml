@@ -4,7 +4,7 @@ steps:
 
 - id: 'Contruindo imagem'
   name: 'gcr.io/cloud-builders/go'
-  args: ['install', 'main']
+  args: ['install', '']
   #env: ['GOPATH=.']
 
 # - id: 'Rodando os testes'
