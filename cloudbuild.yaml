@@ -2,6 +2,7 @@ steps:
 
 - id: 'Constuindo a imagem de teste'
   name: 'gcr.io/cloud-builders/docker'
+  entrypoint: bash
   args: ['-c', 'docker image build --target build --tag go-hpa:test .']
 
 # - id: 'Instalando o app go-hpa'
