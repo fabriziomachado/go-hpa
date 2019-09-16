@@ -11,6 +11,8 @@ WORKDIR /go/src/sqrt
 
 COPY --from=base /bin/sqrt /bin/sqrt
 
+RUN ["chmod", "+x", "/bin/sqrt"]
+
 EXPOSE 80
 
 ENTRYPOINT ["/bin/sqrt"]
