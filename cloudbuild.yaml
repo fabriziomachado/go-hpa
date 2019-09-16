@@ -1,31 +1,15 @@
 steps:
 
-  - id: build-test-image
-    name: gcr.io/cloud-builders/docker
-    entrypoint: bash
-    args:
-      - -c
-      - |
-        docker image build --target build --tag go-hpa:test .
+- id: 'Instalando o app go-hpa'
+  name: 'gcr.io/cloud-builders/go'
+  args: ['install', 'go-hpa']
+  env: ['GOPATH=.']
 
-  - id: run-tests
-    name: gcr.io/cloud-builders/docker
-    entrypoint: bash
-    args:
-      - -c
-      - |
-        docker container run go-hpa:test go test
+- id: 'Executando Teste Unitário'
+  name: 'gcr.io/cloud-builders/go'
+  args: ['test', '-v','./...']
+  env: ['GOPATH=.']
 
-# - id: 'Instalando o app go-hpa'
-#   name: 'gcr.io/cloud-builders/go'
-#   args: ['install', 'go-hpa']
-#   env: ['GOPATH=.']
-#
-# - id: 'Executando Teste Unitário'
-#   name: 'gcr.io/cloud-builders/go'
-#   args: ['test', '-v','./...']
-#   env: ['GOPATH=.']
-#
 # - id: 'Fazendo o Push da Imagem para o Cloud Registry'
 #   name: 'gcr.io/cloud-builders/docker'
 #   args:
