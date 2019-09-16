@@ -5,7 +5,7 @@ steps:
 - id: 'Contruindo imagem'
   name: 'gcr.io/cloud-builders/go'
   args: ['install', 'main']
-  env: ['GOPATH=$PWD .']
+  env: ['GOPATH=$PWD']
 
 # - id: 'Rodando os testes'
 #   name: 'gcr.io/cloud-builders/go'
