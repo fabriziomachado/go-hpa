@@ -1,13 +1,17 @@
-FROM golang:1.11-alpine AS build
-
+FROM golang:1.11-alpine
 RUN apk add --update --no-cache gcc git build-base
 
-WORKDIR /go/src/sqrt
-ADD ./src /go/src/sqrt
-# COPY main*.go go.* /go/src/sqrt
-RUN CGO_ENABLED=0 go build -o /bin/sqrt
+#FROM golang:onbuild
 
-EXPOSE 80
+WORKDIR /go/src/app
+ADD ./src/app /go/src/app
+# COPY main*.go go.* /go/src/app
+RUN CGO_ENABLED=0 go build -o /bin/app
 
-CMD ["go", "test", "-v"]
-# CMD ["go", "run", "main.go"]
+EXPOSE 8000
+
+#CMD ["go", "test", "-v"]
+CMD ["go", "run", "main.go"]
+
+#CMD["./main"]
+#ENTRYPOINT ["./main"]
