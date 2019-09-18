@@ -2,13 +2,13 @@ steps:
 
 steps:
 
-- id: 'Contruindo imagem'
+- id: 'Instalando dependencias'
   name: 'gcr.io/cloud-builders/go'
-  args: ['install', 'sqrt']
+  args: ['install', 'app']
 
 - id: 'Rodando os Testes Unitários'
   name: 'gcr.io/cloud-builders/go'
-  args: ['test', '-v','sqrt']
+  args: ['test', '-v','app']
 
 - id: 'Build e push da Imagem'
   name: 'gcr.io/cloud-builders/docker'
